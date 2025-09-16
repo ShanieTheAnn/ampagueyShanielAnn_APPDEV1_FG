@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-product-list',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.css'
+  templateUrl: './product-list.component.html',
+  styleUrl: './product-list.component.css'
 })
 
-export class DetailsComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   productId: number | null = null;
   product: any = null;
 
