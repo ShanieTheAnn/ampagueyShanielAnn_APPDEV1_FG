@@ -1,0 +1,33 @@
+<div class="container-fluid" *ngIf = "product">
+    <div class="box">
+        <br>
+        
+        <div class="header">
+            <h1 style="font-weight: bold;">Product</h1>
+        </div>
+        
+        <br><br>
+        <hr><br>
+
+        <div class="tableHolder">
+            <table class="table" style="text-align: center;">
+                <tr>
+                    <th class="card-title">{{product.name}}</th>
+                </tr>
+                <tr>
+                    <td class="card-title">Price: {{product.price}}</td>
+                </tr>
+                <tr>
+                    <td class="card-title">Price: {{product.location}}</td>
+                </tr>
+                <tr>
+                    <td class="card-title">Price: {{product.details}}</td>
+                </tr>
+                <tr>
+                    <td class="card-title"><a class = "btn btn-success" routerLink = "/list">Return</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
