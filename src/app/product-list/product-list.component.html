@@ -2,15 +2,15 @@
     <div class="box">
         <br>
         <div class="header">
-            <h1 style="text-align: center">Kalerka Yarn</h1>
+            <h1 style="text-align: center">Sopping Shop</h1>
         </div>
         <br><br>
         <hr>
         <br>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" />
+        </div>
+
         
         <table class="table table-hover">
             <thead>
@@ -23,13 +23,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let product of products; let i = index;">
+                <tr *ngFor = "let product of filteredProducts">
                     <th scope="row">{{product.id}}</th>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.stock}}</td>
-                    <td><a routerLink= "/cart">Add to Cart</a></td>
-                </tr>  
+                    <td><button class="btn btn-primary" [disabled]="product.stock === 0" routerLink="/cart" (click)="addToCart(product)"> Add to Cart</button></td>
+                </tr> 
             </tbody>
         </table>
     </div>

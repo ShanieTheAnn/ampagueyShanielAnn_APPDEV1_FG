@@ -2,32 +2,39 @@
     <div class="box">
         <br>
         <div class="header">
-            <h1 style="text-align: center">Kalerka Yarn</h1>
+            <h1 style="text-align: center">Sopping Shop</h1>
         </div>
         <br><br>
         <hr>
         <br>
         
-        <table class="table table-hover">
+        <table class="table table-hover" *ngIf="cartItems.length > 0; else empty">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Stock</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let product of products; let i = index;">
-                    <th scope="row">{{product.id}}</th>
-                    <td>{{product.name}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.stock}}</td>
-                </tr>  
+                <tr *ngFor="let item of cartItems; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price * item.quantity }}</td>
+                </tr>
             </tbody>
         </table>
 
+        <ng-template #empty>
+            <p>Your cart is empty.</p>
+        </ng-template>
+
         <button type="button" class="btn btn-light" routerLink="/productlist">Go Back to List</button>
-        <button type="button" class="btn btn-light">Purchase</button>
+        <button type="button" class="btn btn-success" [disabled]= "cartItems.length === 0">Purchase</button>
+        <button type="button" class="btn btn-danger" (click)= "clearCart()" [disabled]= "cartItems.length === 0">Clear Cart</button>
     </div>
 </div>
