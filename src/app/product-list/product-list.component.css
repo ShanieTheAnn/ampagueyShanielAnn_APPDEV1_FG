@@ -1,0 +1,37 @@
+.container-fluid{
+    display: flex;
+    height: 100vh;
+    margin: auto;
+    justify-content: center;
+}
+
+.box{
+    margin: auto;
+    width: 75vw;
+    background: white;
+    padding: 30px;
+    border-radius: 20px 5px;
+    box-shadow: 10px 15px rgb(72, 85, 79);
+    animation: slide-in 0.5s ease-out forwards;
+}
+
+.header{
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.btn-light{
+    background: rgb(104, 84, 84);
+}
+
+hr{
+    border: none;
+    border-top: dotted 5px rgb(71, 125, 146);
+}
+
+@keyframes slide-in {
+    0% {transform: translateY(10%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
